@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/test.css') }}">
+    <div class="navbar">
+        <ul>
+            <img class = "logo" src="{{url_for('static', filename='images/twitter_logo.png')}}">
+            <li><button class="ghost" id="my_account">My account</button></li>
+            <li><a href="{{url_for('friends')}}" class="button">Friends</a></li>
+            <li><a href="{{url_for('my_tweets')}}" class="button">Account</a></li>
+            <li><a href="{{url_for('log_out')}}" class="button">Log out</a></li>
+            <li><a href="{{url_for('landing_page')}}" class="button">Home</a></li>
+        </li>
+        </ul>
+        </div>
+    <body>
+        <form name ="form_1" class = "post_tweets" method="post" action = "/logged_in">
+            <span>Post a tweet</span><br>
+            <input type="name" name ="title" placeholder="Title" /><br>
+            <input type="text" placeholder="Body" name ="body" style="height:200px"/><br>
+            <button type = "submit" name = "submit_tweet">Submit</button>
+        </form>
+    <div>
+        <h1>My tweets</h1>
+    {% for post in posts %}
+        <div class = "tweet" style="width: 50%; height: 100%; float: left; border-radius: 5px; padding: 5px; margin: 5px;">
+            <h2 style = "color : gray">{{post["title"] + ":\n"}}</h2>
+            You posted :<br>
+            {{post["body"]}}<br>
+            On : {{post["date"]}}
+            <form method="post" id = "form_{{post['id']}}" action = "{{url_for('delete_tweet')}}" >
+                <button type = "submit" name = "{{post['id']}}">Delete</button>
+            </form>
+            </form>
+            <hr>
+        </div>
+        
+    </div>
+        {%endfor%}
+        <li><a href="{{url_for('delete_user')}}" class="button">Delete account</a></li>
+    </body>
+
+</html>
+

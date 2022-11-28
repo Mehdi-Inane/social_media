@@ -1,0 +1,60 @@
+
+
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/test.css') }}">
+
+</head>
+
+
+<body>
+    <div class="navbar">
+        <ul>
+            <img class = "logo" src="{{url_for('static', filename='images/twitter_logo.png')}}">
+            <li><button class="ghost" id="Contact"> Contact Us</button></li>
+            <li><button class="ghost" id="signIn">Sign In</button></li>
+            <li><button class="ghost" id="signUp">Sign Up</button></li>
+        </ul>
+        </div>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form  id = "form_2" action="/register" method='post'>
+            <h1>Create Account</h1>
+            <span>Use your email for registration</span>
+            <input type="text" placeholder="Name" name = 'name'>
+            <input type="email" placeholder="Email" name = "email" >
+            <input type="text" placeholder="Address" name ="address">
+            <input type="password" placeholder = "Phone" name = "phone" >
+            <button type = "submit" name = "submit_1">Sign Up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form  id = "form_1" action="/login" method = "post">
+            <h1>Sign in</h1>
+            <span>Use your account</span>
+            <input type="name" name ="name_log_in" placeholder="Name" />
+            <input type="password" placeholder="Phone" name ="phone_log_in"/>
+            <a href="#">Forgot your password?</a>
+            <button type = "submit" name = "submit_2">Sign In</button>
+        </form>
+    </div>
+    
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>
+                    To keep connected with us please login with your personal info
+                </p>
+                <button class="ghost" id="signIn_1">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp_1">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static',filename='test.js') }}"> </script>
+</body>
